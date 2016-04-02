@@ -1,0 +1,24 @@
+{
+    "name": "backbone-marionette-template-app",
+    "version": "1.0.0",
+    "description": "A simple backbone marionette template app",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+    "type": "git",
+        "url": "git+https://github.com/shek8034/backbone-marionette-template.git"
+    },
+    "author": "Shekhar Kumar",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shek8034/backbone-marionette-template/issues"
+    },
+    "homepage": "https://github.com/shek8034/backbone-marionette-template.git",
+    "dependencies": {
+        "express": "^4.13.4"
+    },
+    "devDependencies": {}
+}
