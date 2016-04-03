@@ -11,7 +11,10 @@
     "type": "git",
         "url": "git+https://github.com/shek8034/backbone-marionette-template.git"
     },
-    "author": "Shekhar Kumar",
+    "author": {
+        "name": "Shekhar Kumar",
+        "email": "shekhar.mnnit10@gmail.com"
+    },
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/shek8034/backbone-marionette-template/issues"
