@@ -1,7 +1,7 @@
 {
-    "name": "backbone-marionette-template-app",
+    "name": "backbone-marionette-require-template",
     "version": "1.0.0",
-    "description": "A simple backbone marionette template app",
+    "description": "A simple backbone + marionette + require template app",
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,7 +18,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/shek8034/backbone-marionette-template.git"
+        "url": "git+https://github.com/shek8034/backbone-marionette-require-template.git"
     },
     "author": {
         "name": "Shekhar Kumar",
@@ -26,9 +26,9 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/shek8034/backbone-marionette-template/issues"
+        "url": "https://github.com/shek8034/backbone-marionette-require-template/issues"
     },
-    "homepage": "https://github.com/shek8034/backbone-marionette-template.git",
+    "homepage": "https://github.com/shek8034/backbone-marionette-require-template.git",
     "dependencies": {
         "express": "^4.13.4"
     },
