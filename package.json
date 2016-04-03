@@ -7,8 +7,17 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js"
     },
+    "keywords": [
+        "backbone",
+        "marionette",
+        "requirejs",
+        "backbone and marionette",
+        "marionette starter kit",
+        "marionette template app",
+        "backbone marionette requirejs boilerplate",
+    ],
     "repository": {
-    "type": "git",
+        "type": "git",
         "url": "git+https://github.com/shek8034/backbone-marionette-template.git"
     },
     "author": {
