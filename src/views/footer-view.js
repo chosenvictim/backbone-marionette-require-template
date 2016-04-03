@@ -11,7 +11,7 @@ define([
 	Marionette,
 	footerTemplate
 ) {
-	var HeaderView = Backbone.Marionette.ItemView.extend({
+	var FooterView = Backbone.Marionette.ItemView.extend({
 		template: footerTemplate,
 		className: 'footer-view',
 
@@ -20,5 +20,5 @@ define([
 		}
 	});
 
-	return HeaderView;
+	return FooterView;
 });
