@@ -12,7 +12,7 @@ define([
 	Marionette,
 	mainContentTemplate
 ) {
-	var HeaderView = Backbone.Marionette.ItemView.extend({
+	var MainContentView = Backbone.Marionette.ItemView.extend({
 		template: mainContentTemplate,
 		className: 'main-content-view',
 
@@ -26,5 +26,5 @@ define([
 
 	});
 
-	return HeaderView;
+	return MainContentView;
 });
