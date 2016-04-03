@@ -1,4 +1,4 @@
-# Simple Backbone Marionette Template App
+# Simple Backbone.js + Marionette.js + Require.js Template App in MVC pattern
 
 ## Installation
 
