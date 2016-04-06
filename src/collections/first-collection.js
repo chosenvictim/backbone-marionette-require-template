@@ -2,7 +2,11 @@ define([
 	'underscore',
 	'backbone',
 	'models/main-content-model'
-], function(_, Backbone, MainModel) {
+], function(
+	_,
+	Backbone,
+	MainModel
+) {
 
 	var FirstCollection = Backbone.Collection.extend({
 		model: MainModel,

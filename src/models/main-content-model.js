@@ -3,9 +3,7 @@ define([
 	'backbone'
 ], function(_, Backbone) {
 
-	var MainContentModel = Backbone.Model.extend({
-
-	});
+	var MainContentModel = Backbone.Model.extend({});
 
 	return MainContentModel;
 });
