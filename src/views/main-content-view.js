@@ -7,7 +7,7 @@ define([
 	'collections/first-collection',
 	'collections/second-collection',
 	'views/first-region-view',
-	'text!templates/main-content.html',
+	'hbs!templates/main-content',
 	'bootstrap-multiselect'
 ], function(
 	$,

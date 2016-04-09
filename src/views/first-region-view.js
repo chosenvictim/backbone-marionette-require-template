@@ -2,8 +2,8 @@ define([
 	'underscore',
 	'backbone',
 	'backbone.marionette',
-	'text!templates/first-region.html',
-	'text!templates/tag-item.html'
+	'hbs!templates/first-region',
+	'hbs!templates/tag-item'
 ], function(
 	_,
 	Backbone,
@@ -12,10 +12,16 @@ define([
 	TagTemplate
 ) {
 
-	var TagsView = Backbone.Marionette.ItemView.extend({
+	var TagView = Backbone.Marionette.ItemView.extend({
 		tagName: "div",
 		className: "tag-item",
 		template: TagTemplate
+	});
+
+	var TagsView = Backbone.Marionette.CollectionView.extend({
+		tagName: "ul",
+		className: "tags",
+		childView: TagView
 	});
 
 	var FirstRegionView = Backbone.Marionette.CompositeView.extend({
@@ -24,7 +30,7 @@ define([
 		template: FirstRegionTemplate,
 
 		childView: TagsView,
-		childViewContainer: ".tags-container",
+		childViewContainer: ".tags-container-extra",
 
 		initialize: function(options) {
 			this.listenTo(this.collection, 'add remove reset', this.collectionChanged);
