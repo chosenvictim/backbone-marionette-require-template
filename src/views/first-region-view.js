@@ -2,43 +2,53 @@ define([
 	'underscore',
 	'backbone',
 	'backbone.marionette',
-	'hbs!templates/first-region',
-	'hbs!templates/tag-item'
+	'hbs!templates/item-container',
+	'hbs!templates/nested-item',
+	'bootstrap-multiselect'
 ], function(
 	_,
 	Backbone,
 	Marionette,
-	FirstRegionTemplate,
-	TagTemplate
+	ItemContainerTemplate,
+	NestedItemTemplate
 ) {
 
-	var TagView = Backbone.Marionette.ItemView.extend({
+	var NestedItemView = Backbone.Marionette.ItemView.extend({
 		tagName: "div",
-		className: "tag-item",
-		template: TagTemplate
-	});
-
-	var TagsView = Backbone.Marionette.CollectionView.extend({
-		tagName: "ul",
-		className: "tags",
-		childView: TagView
-	});
-
-	var FirstRegionView = Backbone.Marionette.CompositeView.extend({
-		tagName: "div",
-		className: "first-region-container",
-		template: FirstRegionTemplate,
-
-		childView: TagsView,
-		childViewContainer: ".tags-container-extra",
+		className: "nested-item",
+		template: NestedItemTemplate,
 
 		initialize: function(options) {
+			console.log("Nested Item view: ", this.model);
+		}
+	});
+
+	var ItemView = Backbone.Marionette.CompositeView.extend({
+		tagName: "div",
+		className: "item-container-extra",
+		template: ItemContainerTemplate,
+
+		childView: NestedItemView,
+		childViewContainer: ".nested-category",
+
+		initialize: function(options) {
+			this.collection = new Backbone.Collection(this.model.get('nestedCategory'));
 			this.listenTo(this.collection, 'add remove reset', this.collectionChanged);
 		},
 
 		collectionChanged: function() {
-			console.log('collectionChanged: ', this.collection);
+			console.log('ItemView collection changed: ', this.render());
+		},
+
+		onRender: function() {
+			this.$el.find('#item-options').multiselect();
 		}
+	});
+
+	var FirstRegionView = Backbone.Marionette.CollectionView.extend({
+		tagName: "ul",
+		className: "items-collection",
+		childView: ItemView
 	});
 
 	return FirstRegionView;

@@ -7,8 +7,7 @@ define([
 	'collections/first-collection',
 	'collections/second-collection',
 	'views/first-region-view',
-	'hbs!templates/main-content',
-	'bootstrap-multiselect'
+	'hbs!templates/main-content'
 ], function(
 	$,
 	_,
@@ -22,7 +21,7 @@ define([
 ) {
 	var MainContentView = Backbone.Marionette.LayoutView.extend({
 		tagName: "div",
-		className: 'main-content-view',
+		className: 'main-content-region',
 		template: mainContentTemplate,
 		regions: {
 			firstRegion: "#first-region",
@@ -43,10 +42,6 @@ define([
 		onRender: function() {
 			this.createFirstRegion();
 			this.createSecondRegion();
-		},
-
-		onShow: function() {
-			this.$el.find('#multiselect-options').multiselect();
 		},
 
 		createFirstRegion: function() {
