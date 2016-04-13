@@ -1,11 +1,12 @@
 define([
+	'jquery',
 	'underscore',
 	'backbone',
 	'backbone.marionette',
 	'hbs!templates/item-container',
-	'hbs!templates/nested-item',
-	'bootstrap-multiselect'
+	'hbs!templates/nested-item'
 ], function(
+	$,
 	_,
 	Backbone,
 	Marionette,
@@ -14,8 +15,6 @@ define([
 ) {
 
 	var NestedItemView = Backbone.Marionette.ItemView.extend({
-		tagName: "div",
-		className: "nested-item",
 		template: NestedItemTemplate,
 
 		initialize: function(options) {
@@ -31,6 +30,11 @@ define([
 		childView: NestedItemView,
 		childViewContainer: ".nested-category",
 
+		events: {
+			'mouseover .item-options': 'showNestedOptions',
+			'click .item-checkbox': 'fetchWithFilter'
+		},
+
 		initialize: function(options) {
 			this.collection = new Backbone.Collection(this.model.get('nestedCategory'));
 			this.listenTo(this.collection, 'add remove reset', this.collectionChanged);
@@ -40,8 +44,17 @@ define([
 			console.log('ItemView collection changed: ', this.render());
 		},
 
-		onRender: function() {
-			this.$el.find('#item-options').multiselect();
+		showNestedOptions: function() {
+			this.$el.find('.nested-category').slideToggle();
+		},
+
+		fetchWithFilter: function() {
+			var filter = [];
+			var nestedItems = this.$el.find('.nested-item');
+			_.each(nestedItems, function(item, idx) {
+				$(item).find('.item-checkbox').checked ? filter.push($(item).data().value) : false;
+			});
+			this.collection.fetchWithFilter({});
 		}
 	});
 
